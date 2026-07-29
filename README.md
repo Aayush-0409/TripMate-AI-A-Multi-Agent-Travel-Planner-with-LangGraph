@@ -112,16 +112,3 @@ curl -X POST http://127.0.0.1:8000/api/travel \
 3. The hotel agent searches for accommodation suggestions.
 4. The itinerary agent creates a practical travel plan.
 5. The final agent formats the result into a polished response.
-
-## Contributing
-
-Contributions are welcome. If you want to improve the app, add new travel features, or fix issues:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Open a pull request
-
-## Acknowledgments
-
-This project is built with the help of modern LLM tooling and travel APIs, and it is intended as a practical example of combining LangGraph agents with real-world applications.
