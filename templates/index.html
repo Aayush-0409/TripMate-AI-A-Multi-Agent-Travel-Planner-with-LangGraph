@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TripMate AI — Smart Travel Planner</title>
+    <meta name="description" content="Plan your perfect trip with TripMate AI. Get flights, hotels, and full day-by-day itineraries powered by multi-agent intelligence." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <!-- Animated mesh background -->
+    <div class="bg-mesh" aria-hidden="true">
+        <div class="mesh-gradient mesh-1"></div>
+        <div class="mesh-gradient mesh-2"></div>
+        <div class="mesh-gradient mesh-3"></div>
+        <div class="mesh-gradient mesh-4"></div>
+        <div class="noise-overlay"></div>
+    </div>
+
+    <div class="app-shell">
+        <!-- Header -->
+        <header class="app-header" id="app-header">
+            <div class="header-inner">
+                <div class="logo-group">
+                    <div class="logo-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+                        </svg>
+                    </div>
+                    <div class="logo-info">
+                        <h1 class="logo-text">TripMate<span class="logo-accent">AI</span></h1>
+                        <p class="logo-tagline">Multi-Agent Travel Planner</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn" id="new-chat-btn" aria-label="New conversation" title="New conversation">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                    </button>
+                    <div class="header-badge">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Online</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <!-- Welcome Screen -->
+            <section class="welcome-screen" id="welcome-screen">
+                <div class="welcome-inner">
+                    <!-- Animated icon -->
+                    <div class="welcome-icon-wrap">
+                        <div class="welcome-icon-ring"></div>
+                        <div class="welcome-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <h2 class="welcome-title">Where will your next<br/><span class="gradient-text">adventure</span> take you?</h2>
+                    <p class="welcome-subtitle">I'll find the best flights, hotels, and craft a perfect day-by-day itinerary — all in one go.</p>
+
+                    <!-- Feature pills -->
+                    <div class="feature-row">
+                        <div class="feature-pill">
+                            <span class="feature-icon">✈️</span>
+                            <span>Live Flights</span>
+                        </div>
+                        <div class="feature-pill">
+                            <span class="feature-icon">🏨</span>
+                            <span>Top Hotels</span>
+                        </div>
+                        <div class="feature-pill">
+                            <span class="feature-icon">📅</span>
+                            <span>Itineraries</span>
+                        </div>
+                        <div class="feature-pill">
+                            <span class="feature-icon">💰</span>
+                            <span>Budget Plans</span>
+                        </div>
+                    </div>
+
+                    <!-- Suggestion cards -->
+                    <div class="suggestion-grid" id="suggestion-grid">
+                        <button class="suggestion-card" data-query="Plan a 5-day trip to Tokyo from Delhi including flights and hotels">
+                            <span class="card-emoji">🗼</span>
+                            <div class="card-text">
+                                <span class="card-title">Tokyo Adventure</span>
+                                <span class="card-desc">5 days from Delhi</span>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </button>
+                        <button class="suggestion-card" data-query="Plan a beach vacation to Bali for 7 days with budget hotels">
+                            <span class="card-emoji">🏖️</span>
+                            <div class="card-text">
+                                <span class="card-title">Bali Beach Escape</span>
+                                <span class="card-desc">7 days, budget-friendly</span>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </button>
+                        <button class="suggestion-card" data-query="Plan a 7-day Europe tour covering Paris and Rome from Mumbai">
+                            <span class="card-emoji">🏰</span>
+                            <div class="card-text">
+                                <span class="card-title">Paris & Rome Tour</span>
+                                <span class="card-desc">7-day Europe adventure</span>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </button>
+                        <button class="suggestion-card" data-query="Plan a weekend trip to Goa with flights and beachside hotels">
+                            <span class="card-emoji">🌴</span>
+                            <div class="card-text">
+                                <span class="card-title">Goa Weekend</span>
+                                <span class="card-desc">Quick beach getaway</span>
+                            </div>
+                            <span class="card-arrow">→</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chat Messages Area -->
+            <div class="chat-area" id="chat-area">
+                <!-- Messages are dynamically inserted here -->
+            </div>
+        </main>
+
+        <!-- Input Bar -->
+        <footer class="input-bar" id="input-bar">
+            <form class="input-form" id="travel-form" autocomplete="off">
+                <div class="input-row">
+                    <div class="input-field">
+                        <input
+                            type="text"
+                            id="user-input"
+                            class="message-input"
+                            placeholder="Describe your dream trip..."
+                            required
+                            maxlength="500"
+                        />
+                        <span class="char-count" id="char-count">0/500</span>
+                    </div>
+                    <button type="submit" class="send-btn" id="send-btn" aria-label="Send message">
+                        <svg class="send-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                        <div class="send-loader" hidden>
+                            <div class="spinner"></div>
+                        </div>
+                    </button>
+                </div>
+                <div class="input-footer">
+                    <div class="powered-by">
+                        <span class="powered-dot"></span>
+                        Powered by LangGraph &bull; Groq LLM &bull; AviationStack &bull; Tavily
+                    </div>
+                </div>
+            </form>
+        </footer>
+    </div>
+
+    <!-- Error toast -->
+    <div class="toast" id="error-toast" role="alert"></div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

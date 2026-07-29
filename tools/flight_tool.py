@@ -146,7 +146,7 @@ def country_name_to_code(text: str):
         if alias in text:
             return  code
 
-        return None
+    return None
 
 def airport_country_matches(airport: dict, country_code: str) -> bool:
 
